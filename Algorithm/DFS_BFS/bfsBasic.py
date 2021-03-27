@@ -16,7 +16,7 @@ def bfs(graph, start, visited):
     # 현재 노드를 방문처리
     visited[start] = True
     while queue: # 큐가 빌 때까지 반복
-        v = queue.popleft()
+        v = queue.popleft() # 가장 먼저 들어온 값을 꺼낸다
         print(v, end=' ')
         for i in graph[v]:
             if not visited[i]:
