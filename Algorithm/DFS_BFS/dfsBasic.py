@@ -20,13 +20,13 @@ def dfs(graph, v, visited):
 
     # 현재 노드와 연결된 다른 노드를 재귀적으로 방문
     for i in graph[v]:
-        if not visited[i]:
-            dfs(graph, i, visited)
+        if not visited[i]: # 방문하지 않은 노드라면
+            dfs(graph, i, visited) # 재귀적으로 방문한다.
 
 graph = [
         [], # 1부터 시작하기 때문에 0번째 인덱스는 비워서 처리
-        [2,3,8],
-        [1,7],
+        [2,3,8], # 1에 인접한 노드들
+        [1,7], # 2에 인접한 노드들..
         [1,4,5],
         [3,5],
         [3,4],
