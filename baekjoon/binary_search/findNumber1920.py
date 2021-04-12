@@ -27,11 +27,10 @@ set 자료구조를 사용하면 중복값이 제거되기도 하고 값 접근�
 #         print(0)
 
 """이진탐색 방법"""
-"""해결안됨.."""
-import sys
-
+"""해결안됨..런타임 에러?(typeError)"""
 def binary_search(arr, target):
-    low, high = 0, len(arr)-1
+    low = 0
+    high = len(arr) - 1
     while low <= high:
         mid = (low + high) // 2
         if arr[mid] == target:
@@ -47,4 +46,30 @@ arr = list(map(int, input().split())).sort()
 m = int(input())
 arr2 = list(map(int, input().split()))
 for t in arr2:
-    binary_search(arr, t)
+    print(binary_search(arr, t))
+
+
+"""아래 코드는 되는데..?"""
+import sys
+
+def binary_search(arr, target):
+    low = 0
+    high = len(arr) - 1
+
+    while low <= high:
+        mid = (low + high) // 2
+        if arr[mid] == target:
+            return 1
+        if target > arr[mid]:
+            low = mid + 1
+        else:
+            high = mid - 1
+    return 0
+
+n = int(sys.stdin.readline())
+arr = list(map(int, sys.stdin.readline().split()))
+arr.sort()
+m = int(sys.stdin.readline())
+arr2 = list(map(int, sys.stdin.readline().split()))
+for t in arr2:
+    print(binary_search(arr, t))
