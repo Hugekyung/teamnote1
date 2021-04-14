@@ -1,30 +1,30 @@
 """일반적인 for문을 활용하면 투입 데이터의 크기에 따라 시간복잡도가
 증가하므로 시간초과가 발생한다."""
-# n = int(input())
-# arr = list(map(int, input().split()))
+n = int(input())
+arr = list(map(int, input().split()))
 
-# m = int(input())
-# arr2 = list(map(int, input().split()))
-# for x in arr2:
-#     if x in arr:
-#         print(1)
-#     else:
-#         print(0)
+m = int(input())
+arr2 = list(map(int, input().split()))
+for x in arr2:
+    if x in arr:
+        print(1)
+    else:
+        print(0)
 
 """위와 같은 코드이지만, 자료구조를 set으로 바꾸게 되면 시간초과가
 발생하지 않는다. list 자료구조에서 search는 O(n) 시간복잡도를 가지지만,
 set 자료구조를 사용하면 중복값이 제거되기도 하고 값 접근에도 O(1) 시간복잡도를
 가지게 되어 시간초과 없이 문제를 해결할 수 있다!!!"""
-# n = int(input())
-# arr = list(map(int, input().split()))
+n = int(input())
+arr = set(map(int, input().split()))
 
-# m = int(input())
-# arr2 = list(map(int, input().split()))
-# for x in arr2:
-#     if x in arr:
-#         print(1)
-#     else:
-#         print(0)
+m = int(input())
+arr2 = list(map(int, input().split()))
+for x in arr2:
+    if x in arr:
+        print(1)
+    else:
+        print(0)
 
 """이진탐색 방법"""
 """해결안됨..런타임 에러?(typeError)"""
