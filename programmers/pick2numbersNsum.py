@@ -11,3 +11,9 @@ def solution(numbers):
                 result.append(num)
     result.sort()
     return result
+
+"""itertools의 combinations를 사용한 코드"""
+from itertools import combinations 
+
+def solution(numbers):
+    return list(sorted(set([sum(combs) for combs in combinations(numbers, 2)])))
