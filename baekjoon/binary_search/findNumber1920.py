@@ -73,3 +73,31 @@ m = int(sys.stdin.readline())
 arr2 = list(map(int, sys.stdin.readline().split()))
 for t in arr2:
     print(binary_search(arr, t))
+
+
+"""재귀호출을 활용한 이진탐색 풀이// 재귀 에러??"""
+import sys
+
+def binary_search(arr, target, start, end):
+    if start > end:
+        return False
+    
+    mid = (start - end) // 2
+    if arr[mid] == target:
+        return True
+    elif arr[mid] < target:
+        return binary_search(arr, target, mid+1 , end)
+    else:
+        return binary_search(arr, target, start, mid-1)
+
+n = int(sys.stdin.readline())
+arr = list(map(int, sys.stdin.readline().split()))
+arr.sort()
+m = int(sys.stdin.readline())
+arr2 = list(map(int, sys.stdin.readline().split()))
+
+for t in arr2:
+    if binary_search(arr, t, 0, n-1):
+        print(1)
+    else:
+        print(0)
