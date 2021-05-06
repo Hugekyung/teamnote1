@@ -1,2 +1,1 @@
-for i in range(1, 3, -1):
-    print(i)
+print(int(12 * 0.9))
