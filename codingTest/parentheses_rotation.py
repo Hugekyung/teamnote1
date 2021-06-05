@@ -24,7 +24,7 @@ def solution(s):
                 for i in range(3):
                     if stack[-1] == opens[i] and v == ends[i]:
                         stack.pop()
-                        break """<--여기 break 왜걸지???"""
+                        break """스택에서 맨 마지막에 들어온놈 뺐으니까 for문 중단"""
                 
         if not stack:
             result += 1
