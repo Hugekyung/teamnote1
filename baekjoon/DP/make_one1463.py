@@ -8,14 +8,16 @@ n = int(sys.stdin.readline())
 dp = [0,0,1,1]
 
 # (예시) N = 10 → 9 → 3 → 1 = 출력 : 3
-for i in range(4, n+1): # 4 ~ 10
+for i in range(4, n+1): # 4 ~ 10 / 4부터 하는 이유는 4 이하로 연산할 경우 연산 오류가 발생할 수 있기 때문
     print("현재 i값: ", i)
-    dp.append(dp[i-1]+1) # -1을 수행할 때의 횟수 count?
+    dp.append(dp[i-1]+1) # -1을 수행할 때의 횟수 count
     print("현재 dp: ", dp)
+
+    # -1 연산을 수행한 횟수 vs 2와 3으로 나누었을 때의 연산횟수 중 최소 횟수를 dp[i]에 저장
     if i % 2 == 0:
-        dp[i] = min(dp[i//2]+1, dp[i]) # n을 2로 나누었을 때 나머지의 연산 횟수와 현재 횟수 중 최소 count 저장
+        dp[i] = min(dp[i//2]+1, dp[i]) # n을 2로 나누었을 때 나머지의 연산 횟수와 -1을 수행한 횟수 중 최소 count 저장
     if i % 3 == 0:
-        dp[i] = min(dp[i//3]+1, dp[i])
+        dp[i] = min(dp[i//3]+1, dp[i]) # n을 3로 나누었을 때 나머지의 연산 횟수와 -1을 수행한 횟수 중 최소 count 저장
     print("연산 후 dp 상태:", dp)
 
 print(dp[n])
