@@ -29,6 +29,7 @@ def path_sum(miro):
             dq.append((nx, ny)) # 현재 위치를 deque에 추가
     return miro[n-1][m-1]
 
+# 메인함수
 def solution(grid):
     miro = grid
     sum_list = []
@@ -36,5 +37,5 @@ def solution(grid):
     result = min(sum_list)
     return result
 
-grid = [ [1, 2], [3, 4] ]
-solution(grid)
+grid = [[1, 2], [3, 4]]
+print(solution(grid))
