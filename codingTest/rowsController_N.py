@@ -1,4 +1,4 @@
-"""kakao-3번문제"""
+"""2021 카카오 인턴십 - 3번 표편집"""
 
 def solution(n, k, cmd):
     result = ['O'] * n
