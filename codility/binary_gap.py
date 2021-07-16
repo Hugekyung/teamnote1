@@ -1,3 +1,6 @@
+""" 코딜리티 Lesson 1: binary_gap
+예외처리를 신경써야할 부분이 생각보다 많다.. 쉬운문제지만 100% 통과하기 쉽지 않음"""
+
 def solution(N):
     binary = bin(N)[2:]
     
