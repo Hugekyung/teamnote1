@@ -16,7 +16,6 @@ def bfs(x, y, place):
     
     while dq:
         x, y = dq.popleft()
-        # print(x, y, "일때 좌표값: ", visited[x][y])
         for i in range(4):
             nx = x + dx[i]
             ny = y + dy[i]
