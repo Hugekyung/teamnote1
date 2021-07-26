@@ -1,30 +1,43 @@
-"""2021 카카오 인턴십 - 3번 표편집"""
+"""2021 카카오 인턴십 - 3번 표편집
+n의 범위가 5 ≤ n ≤ 1,000,000 이고,
+cmd의 범위도 1 ≤ cmd의 원소 개수 ≤ 200,000로 크기 때문에
+일반적인 리스트로 구현하게 되면 효율성 테스트를 통과하지 못할 가능성이 크다..
+"""
+
+
+from collections import deque
 
 def solution(n, k, cmd):
-    result = ['O'] * n
-    test = [i for i in range(n)]
-    remove_list = []
-    cur = k
+    tables = [i for i in range(n)]
+    result = ["O"] * n
+    tt = tables.copy()
+    del_list = deque()
+    
     for c in cmd:
-        c = list(c.split(' '))
-        if c[0] == 'D':
-            cur += int(c[1])
-        elif c[0] == 'U':
-            cur -= int(c[1])
-        elif c[0] == 'C':
-            if (len(test) - 1) == cur:
-                remove_list.append(test.pop(cur))
-                cur -= 1
-            else:
-                remove_list.append(test.pop(cur))
-        elif c[0] == 'Z':
-            if remove_list[-1] <= cur:
-                cur += 1
-            test.insert(remove_list[-1], remove_list[-1])
-            remove_list.pop(-1)
-    for r in remove_list:
-        result[r] = 'X'
-    return ''.join(result)
+        if c[0] == "D" or c[0] == "U":
+            tmp = list(c.split())
+            if tmp[0] == "U":
+                k -= int(tmp[1])
+            if tmp[0] == "D":
+                k += int(tmp[1])
+        elif c[0] == "C":
+            del_list.append(tt.pop(k))
+            try:
+                tmp = tt[k]
+            except:
+                k -= 1
+        elif c[0] == "Z":
+            tmp = del_list.pop()
+            tt.insert(tmp, tmp)
+            if tmp <= k:
+                k += 1
+        print("현재 위치는: ", k)
+
+    for i in del_list:
+        result[i] = "X"
+    result = ''.join(result)
+    return result
 
 cmd = ["D 2","C","U 3","C","D 4","C","U 2","Z","Z","U 1","C"]
-solution(8, 2, cmd)
+print(solution(8, 2, cmd))
+
